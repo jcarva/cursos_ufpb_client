@@ -4,7 +4,9 @@
   "description": "Client application to students visualize general data about UFPB courses",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server --inline --content-base --history-api-fallback",
+    "build": "webpack -p --config ./webpack.config.js --progress",
+    "gh-deploy": "npm run build&&gh-pages -d build"
   },
   "engines": {
     "node": "6.2.2",
@@ -26,5 +28,25 @@
   "bugs": {
     "url": "https://github.com/jcarva/cursos_ufpb_client/issues"
   },
-  "homepage": "https://github.com/jcarva/cursos_ufpb_client#readme"
+  "homepage": "https://github.com/jcarva/cursos_ufpb_client#readme",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "css-loader": "^0.26.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.26.0",
+    "node-sass": "^4.3.0",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "gh-pages": "^0.12.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
 }
