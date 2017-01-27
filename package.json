@@ -1,0 +1,30 @@
+{
+  "name": "cursos_ufpb_client",
+  "version": "0.0.1",
+  "description": "Client application to students visualize general data about UFPB courses",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "6.2.2",
+    "npm": "3.9.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcarva/cursos_ufpb_client.git"
+  },
+  "keywords": [
+    "cursos",
+    "ufpb",
+    "sigaa",
+    "react"
+  ],
+  "author": "Jaelson Carvalho <jaelsoncarvalhojr@gmail.com> (https://github.com/jcarva)",
+  "contributors": [],
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jcarva/cursos_ufpb_client/issues"
+  },
+  "homepage": "https://github.com/jcarva/cursos_ufpb_client#readme"
+}
