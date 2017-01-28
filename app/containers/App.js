@@ -1,17 +1,18 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { app_title } from '../actions/AppAction'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { app_title } from '../actions/AppAction';
 
 class App extends Component {
   componentWillMount() {
-    this.props.app_title()
+    this.props.app_title();
   }
 
   render() {
-    console.log(this.props);
-    return(
-      <div><h1>{this.props.title}</h1></div>
+    return (
+      <div>
+        <h1>{this.props.title}</h1>
+      </div>
     )
   }
 }

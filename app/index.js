@@ -1,15 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
+import App from './App';
 
-import reducers from './reducers';
-import App from './containers/App'
+const appEl = document.getElementById('app');
+const render = Component => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    appEl
+  );
+};
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
-
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App/>
-  </Provider>
-  , document.getElementById('app'));
+render(App);
+if (module.hot) module.hot.accept('./App', () => {
+  const newApp = require('./App').default;
+  render(newApp);
+});

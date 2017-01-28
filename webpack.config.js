@@ -1,17 +1,22 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: __dirname + '/app/index.html',
-  filename: 'index.html',
-  inject: 'body'
-});
+let CopyWebpackPlugin = require('copy-webpack-plugin');
+let path = require('path');
+let webpack = require('webpack');
+
+let env = process.env.NODE_ENV || 'development';
+
+let entry = env != 'development' ? './app/index.js' : [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
+    './app/index.js'
+  ];
 
 module.exports = {
-  entry: [
-    './app/index.js'
-  ],
+  entry: entry,
   output: {
-    path: __dirname + '/build',
-    filename: "bundle.js"
+    path: path.resolve(__dirname, 'build'),
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     loaders: [
@@ -21,5 +26,21 @@ module.exports = {
       { test: /\.(png|jpg|svg)$/, loader: 'file-loader' }
     ]
   },
-  plugins: [HTMLWebpackPluginConfig]
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: 'index.html' }
+    ]),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(env)
+    })
+  ],
+  devtool: 'inline-source-map',
+  devServer: {
+    host: 'localhost',
+    port: 3000,
+    historyApiFallback: true,
+    hot: true,
+  }
 };
