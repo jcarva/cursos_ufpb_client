@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 export default (props) => {
   return(
     <div id="navigation-bar">
-      <h1>Top Bar</h1>
+      <h4>Top Bar</h4>
       {props.children}
-      <h1>Down Bar</h1>
+      <h4>Down Bar</h4>
     </div>
   )
 };
