@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import AppTitleReducer from './app'
+import AppTitleReducer from './App/index'
 
 const rootReducer = combineReducers({
   title: AppTitleReducer

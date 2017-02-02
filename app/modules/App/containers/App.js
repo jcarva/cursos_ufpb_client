@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { app_title } from '../actions/AppAction';
+import { app_title } from '../index';
 
 class App extends Component {
   componentWillMount() {
