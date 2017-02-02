@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import AppTitleReducer from './App/index'
+import FetchCurriculas from './SearchBar/index'
 
 const rootReducer = combineReducers({
-  title: AppTitleReducer
+  curriculas: FetchCurriculas
 });
 
 export default rootReducer;
