@@ -2,11 +2,11 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // Import scenes
-import About from './About/About';
-import AppWrapper from './AppWrapper/AppWrapper';
-import Curriculum from './Curriculum/Curriculum';
-import Home from './Home/Home';
-import NoMatch from './NoMatch/NoMatch';
+import About from './About';
+import AppWrapper from './AppWrapper';
+import Curriculum from './Curriculum';
+import Home from './Home';
+import NoMatch from './NoMatch';
 
 export default () => (
   <Route path="/" component={AppWrapper}>
