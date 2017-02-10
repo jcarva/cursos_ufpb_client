@@ -1,7 +1,7 @@
 {
   "name": "cursos_ufpb_client",
   "version": "0.0.1",
-  "description": "Client application to students visualize general data about UFPB courses",
+  "description": "Client application to visualization of some data from University Federal of Paraíba(UFPB)",
   "main": "server.js",
   "scripts": {
     "lint": "node_modules/.bin/eslint app",
@@ -24,7 +24,10 @@
     "react"
   ],
   "author": "Jaelson Carvalho <jaelsoncarvalhojr@gmail.com> (https://github.com/jcarva)",
-  "contributors": [],
+  "contributors": [{
+    "name": "David Leite Guilherme",
+    "email": "<davidlguilherme@gmail.com> (https://github.com/davidguilherme)"
+  }],
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/jcarva/cursos_ufpb_client/issues"
