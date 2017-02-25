@@ -18,6 +18,9 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/'
   },
+  resolve: {
+    root: [path.resolve('./app')]
+  },
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
