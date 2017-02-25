@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux';
 
 // Modules
-import curriculas from './curriculas';
+import curricula from './curricula';
 import flowchart from './flowchart';
 
+// Extra modules
+import entities from 'utils/redux/entities';
+
 export default combineReducers({
-  curriculas,
-  flowchart
+  curricula,
+  flowchart,
+  entities
 });

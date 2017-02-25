@@ -1,28 +1,40 @@
 import { combineReducers } from 'redux';
-import { fetchCurriculum } from 'modules/curriculas';
+import { createSelector } from 'reselect';
+
+import { getCurricula } from 'modules/curricula';
 
 // Action Types
-export const SELECT_CURRICULUM = 'cursos_ufpb/flowchart/SELECT_CURRICULUM';
+export const SET_CURRICULUM_TERM = 'cursos_ufpb/flowchart/SET_CURRICULUM_TERM';
 
 // Reducers
-const curriculumSelected = (state = null, action) => {
-    switch (action.type) {
-      case SELECT_CURRICULUM:
-        return action.payload.id;
-      default:
-        return state;
-    }
+const curriculumTerm = (state = '', action) => {
+  switch (action.type) {
+    case SET_CURRICULUM_TERM:
+      return action.term;
+    default:
+      return state;
+  }
 };
 
 export default combineReducers({
-  curriculumSelected
+  curriculumTerm
 });
 
 // Action Creators
-export const selectCurriculum = (id) => (dispatch) => {
-  dispatch(fetchCurriculum(id));
-  dispatch({
-    type: SELECT_CURRICULUM,
-    id
-  });
-};
+export const setCurriculumTerm = (term) => ({
+  type: SET_CURRICULUM_TERM,
+  term
+});
+
+// Selectors
+export const getCurriculumTerm = (state) => state.flowchart.curriculumTerm;
+
+export const getFilteredCurricula = createSelector(
+  getCurriculumTerm,
+  getCurricula,
+  (term, curricula) => (
+    curricula.filter(curriculum =>
+      curriculum.get('name').match(new RegExp(`^.*${term}.*$`, 'i'))
+    )
+  )
+);
