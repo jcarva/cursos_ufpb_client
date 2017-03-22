@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import { createSelector } from 'reselect';
 
 import CurriculaAPI from 'api/curricula';
-import { getEntities } from 'utils/redux/entities';
+import { getEntities, setEntities } from 'utils/redux/entities';
 
 // Action Types
 export const FETCH_CURRICULA_REQUEST = 'cursos_ufpb/curricula/FETCH_CURRICULA_REQUEST';
@@ -58,8 +58,10 @@ export const fetchCurricula = () => (dispatch) => {
         type: FETCH_CURRICULA_SUCCESS,
         payload: response.result
       })
-    })
-    .catch((error) => dispatch(error));
+    }).catch((err) => dispatch({
+      type: FETCH_CURRICULA_FAILURE,
+      payload: err
+    }));
 };
 
 export const fetchCurriculum = (id) => (dispatch) => {
@@ -75,8 +77,10 @@ export const fetchCurriculum = (id) => (dispatch) => {
         type: FETCH_CURRICULUM_SUCCESS,
         payload: response.result
       })
-    })
-    .catch((error) => dispatch(error));
+    }).catch((err) => dispatch({
+      type: FETCH_CURRICULUM_FAILURE,
+      payload: err
+    }));
 };
 
 // Selectors
