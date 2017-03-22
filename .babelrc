@@ -2,6 +2,7 @@
 {
   "presets": ["react", "es2015", "stage-0"],
   "plugins": [
-    "react-hot-loader/babel"
+    "react-hot-loader/babel",
+    ["lodash", { "id": ["lodash", "recompose"] }]
   ]
 }
