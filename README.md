@@ -57,6 +57,15 @@ $ npm run build
 ```
 ---
 
+## Tests
+
+This command will execute all tests.
+
+```bash
+$ npm test
+```
+---
+
 ## Contributing
 
 1. Fork it
