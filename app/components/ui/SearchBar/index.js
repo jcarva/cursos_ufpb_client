@@ -26,7 +26,7 @@ const SearchBar = ({
   <Autocomplete
     value={value}
     onChange={(evt, value) => onChange(value, evt)}
-    onSelect={(value, item) => onSelect(item, value)}
+    onSelect={(_value, item) => onSelect(item)}
     items={items}
     getItemValue={(item) => item[itemLabel]}
     renderItem={(item, isHighlighted) => (
